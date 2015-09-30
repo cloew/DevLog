@@ -5,5 +5,7 @@ setup(name='devlog',
       description="",
       author='',
       author_email='',
-      packages=['devlog'],
+      packages=['devlog',
+                'devlog.commands',
+                'devlog.config'],
      )
