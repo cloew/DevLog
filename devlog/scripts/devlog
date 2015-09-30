@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+from devlog import DevLog
+
+import sys
+
+def main(args):
+    """ Run the main file """
+    DevLog('devlog').run(args)
+
+if __name__ == "__main__":
+	main(sys.argv[1:])
