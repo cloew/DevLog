@@ -14,3 +14,9 @@ class Config:
     def editorCommandString(self):
         """ Return the configured editor command String """
         return self.config.readlines()[0].strip()
+        
+    def setEditor(self, editorCmd):
+        """ Set the editor command """
+        self.config.write(editorCmd.strip())
+        
+Config = Config()
