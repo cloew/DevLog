@@ -1,12 +1,15 @@
 from kao_config import GlobalConfigFile
 from kao_decorators import lazy_property
 
+import os
 import toml
+
+EDITOR_KEY = 'editor'
+LOG_DIR_KEY = 'log_dir'
 
 class Config:
     """ Represents the DevLog Configuration """
     CONFIG_FILENAME = ".devlog"
-    EDITOR_KEY = 'editor'
     
     @lazy_property
     def config(self):
@@ -16,11 +19,24 @@ class Config:
     @property
     def editorCommandString(self):
         """ Return the configured editor command String """
-        return self._toml[self.EDITOR_KEY]
+        return self._toml[EDITOR_KEY]
+        
+    @property
+    def logDir(self):
+        """ Return the configured Log Directory """
+        return os.path.relpath(self._toml[LOG_DIR_KEY])
         
     def setEditor(self, editorCmd):
         """ Set the editor command """
-        self._write(editor=editorCmd.strip())
+        tomlConfig = self._toml
+        tomlConfig[EDITOR_KEY] = editorCmd.strip()
+        self._write(**tomlConfig)
+        
+    def setLogDir(self, dir):
+        """ Set the editor command """
+        tomlConfig = self._toml
+        tomlConfig[LOG_DIR_KEY] = os.path.abspath(dir.strip())
+        self._write(**tomlConfig)
         
     @property
     def _toml(self):
