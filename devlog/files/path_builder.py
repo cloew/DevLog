@@ -1,4 +1,4 @@
-from .config import Config
+from ..config import Config
 from kao_path import TouchDirectory, TouchFile
 import os
             
@@ -16,10 +16,10 @@ def create_path(createFn):
 create_dir = create_path(TouchDirectory)
 create_file = create_path(TouchFile)
 
-class FileStructure:
-    """ Helper class to manage the File Structure for the dev log """
+class PathBuilder:
+    """ Helper class to manage the build paths for the dev log """
     
-    def getFilename(self, date, create=False):
+    def getPath(self, date, create=False):
         """ Return the filename for the log on the date """
         if create:
             TouchDirectory(Config.logDir)
@@ -39,5 +39,3 @@ class FileStructure:
     def getDayFilename(self, date, create=False):
         """ Return the path to the day file """
         return os.path.join(self.getMonthDirname(date, create=create), str(date.day))
-        
-FileStructure = FileStructure()
