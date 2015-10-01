@@ -19,10 +19,14 @@ create_file = create_path(TouchFile)
 class PathBuilder:
     """ Helper class to manage the build paths for the dev log """
     
+    def __init__(self, rootDir):
+        """ Initialize with the root directory """
+        self.rootDir = rootDir
+    
     def getPath(self, date, create=False):
         """ Return the filename for the log on the date """
         if create:
-            TouchDirectory(Config.logDir)
+            TouchDirectory(self.rootDir)
         return self.getDayFilename(date, create=create)
 
     @create_dir
