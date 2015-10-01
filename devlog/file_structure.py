@@ -22,7 +22,7 @@ class FileStructure:
     def getFilename(self, date, create=False):
         """ Return the filename for the log on the date """
         if create:
-            CreateDirectoryIfItDoesNotExist(Config.logDir)
+            TouchDirectory(Config.logDir)
         return self.getDayFilename(date, create=create)
 
     @create_dir
