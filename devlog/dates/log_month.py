@@ -1,4 +1,5 @@
 from ..file_structure import FileStructure
+from kao_decorators import lazy_property
 
 class LogMonth:
     """ Represents a specific Log Month directory """
