@@ -1,4 +1,5 @@
 from ..editor import Editor
+from ..log_file import LogFile
 from kao_command.args import Arg
 from datetime import datetime
 
@@ -9,4 +10,5 @@ class NewLog:
     
     def run(self):
         """ Create the new log entry """
-        Editor.open([datetime.now()])
+        log = LogFile(datetime.now(), create=True)
+        Editor.open(log)

@@ -6,9 +6,13 @@ from subprocess import call
 class Editor:
     """ Represents the Editor to use to open files """
     
-    def open(self, dates):
-        """ Open the given dates """
-        filenames = [FileStructure.getFilename(date, create=True) for date in dates]
+    def open(self, log):
+        """ Open the given log """
+        self.openAll([log])
+    
+    def openAll(self, logs):
+        """ Open all the given logs """
+        filenames = [log.path for log in logs]
         call(Config.editorCommandString.split() + filenames)
         
 Editor = Editor()
