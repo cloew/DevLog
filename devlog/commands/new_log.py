@@ -11,4 +11,7 @@ class NewLog:
     def run(self):
         """ Create the new log entry """
         log = LogFile(datetime.now(), create=True)
-        Editor.open(log)
+        previous = log.previous
+        logs = [previous] if previous else []
+        logs.append(log)
+        Editor.openAll(logs)

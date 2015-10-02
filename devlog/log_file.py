@@ -19,19 +19,19 @@ class LogFile:
     def previous(self):
         """ Return the previous LogFile """
         previous = self.day.previous
-        return LogFile(previous.date)
+        return LogFile(previous.date) if previous else None
     
     @property
     def next(self):
         """ Return the next LogFile """
         next = self.day.next
-        return LogFile(next.date)
+        return LogFile(next.date) if next else None
         
     @property
     def day(self):
         """ Return the LogDay """
         path = self.path # Force file creation if needed
-        year = LogYear(date)
-        month = LogMonth(date, year)
-        return LogDay(date, month)
+        year = LogYear(self.date)
+        month = LogMonth(self.date, year)
+        return LogDay(self.date, month)
         

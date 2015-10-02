@@ -27,9 +27,9 @@ class DateFiles(Enum):
     def build(self, date, value):
         return DateBuilder(date).build(**{self.field: value})
 
-    def getDirContents(self, directory):
-        """ Return the contents of the given directory """
-        return sorted([int(file) for file in os.listdir(directory)])
+    def getDirContents(self, path):
+        """ Return the contents of the given path """
+        return sorted([int(file) for file in os.listdir(os.path.dirname(path))])
         
     @property
     def field(self):
