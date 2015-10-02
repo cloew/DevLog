@@ -4,11 +4,7 @@ import unittest
 from unittest.mock import patch, Mock
 
 from kao_list import KaoList
-from datetime import date, timedelta
-
-def BuildDate(year=2015, month=1, day=1):
-    """ Helper method to build a date """
-    return date(year=year, month=month, day=day)
+from Test import BuildDate
 
 class previous(unittest.TestCase):
     """ Test cases of previous """
