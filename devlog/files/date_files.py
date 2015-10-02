@@ -21,7 +21,7 @@ class DateFiles(Enum):
         return [self.build(date, dateValue) for dateValue in self.getDirContents(self.path(date))]
         
     def path(self, date, create=False):
-        return PathBuilder().getPath(date, self.field, create=False)
+        return PathBuilder().getPath(date, self.field, create=create)
         
     def build(self, date, value):
         return DateBuilder(date).build(**{self.field: value})
