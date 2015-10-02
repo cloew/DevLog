@@ -32,7 +32,7 @@ class FileStructure:
         path = self.pathBuilder.getMonthDirname(date)
         return [builder.build(day=day) for day in self.getDirContents(path)]
 
-    def getDirContents(directory):
+    def getDirContents(self, directory):
         """ Return the contents of the given directory """
         return sorted([int(file) for file in os.listdir(directory)])
         
