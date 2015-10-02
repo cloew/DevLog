@@ -2,6 +2,7 @@ from .date_builder import DateBuilder
 from .path_builder import PathBuilder
 from ..config import Config
 
+from datetime import date
 from kao_decorators import proxy_for
 import os
 
@@ -13,9 +14,10 @@ class FileStructure:
         """ Initialize the File Structure """
         self.pathBuilder = PathBuilder(Config.logDir)
         
-    def years(self, date):
+    def years(self):
         """ Return the years """
-        builder = DateBuilder(date)
+        today = date.today()
+        builder = DateBuilder(today)
         return [builder.build(year=year) for year in self.getDirContents(self.rootDir)]
         
     def months(self, date):
