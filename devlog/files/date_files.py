@@ -3,8 +3,9 @@ from .date_fields import DateFields
 from .path_builder import PathBuilder
 from ..config import Config
 
-import datetime
 from enum import Enum
+import datetime
+import os
 
 class DateFiles(Enum):
     """ Represents the various kinds of Date Files """
