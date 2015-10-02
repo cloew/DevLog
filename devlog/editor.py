@@ -1,5 +1,4 @@
 from .config import Config
-from .file_structure import FileStructure
 
 from subprocess import call
 
