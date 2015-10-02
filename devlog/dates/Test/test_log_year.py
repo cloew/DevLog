@@ -19,8 +19,8 @@ class previous(unittest.TestCase):
         
         itemsMock = Mock(return_value=items)
         
-        with patch('devlog.dates.log_year.FileStructure') as FileStructureMock:
-            FileStructureMock.years = itemsMock
+        with patch('devlog.dates.log_year.DateFiles') as DateFilesMock:
+            DateFilesMock.Years = itemsMock
             actual = year.previous
             self.assertEqual(actual, expected)
         
@@ -33,8 +33,8 @@ class previous(unittest.TestCase):
         
         itemsMock = Mock(return_value=items)
         
-        with patch('devlog.dates.log_year.FileStructure') as FileStructureMock:
-            FileStructureMock.years = itemsMock
+        with patch('devlog.dates.log_year.DateFiles') as DateFilesMock:
+            DateFilesMock.Years = itemsMock
             actual = year.previous
             self.assertEqual(actual, expected)
 
@@ -51,8 +51,8 @@ class next(unittest.TestCase):
         
         itemsMock = Mock(return_value=items)
         
-        with patch('devlog.dates.log_year.FileStructure') as FileStructureMock:
-            FileStructureMock.years = itemsMock
+        with patch('devlog.dates.log_year.DateFiles') as DateFilesMock:
+            DateFilesMock.Years = itemsMock
             actual = year.next
             self.assertEqual(actual, expected)
         
@@ -65,8 +65,8 @@ class next(unittest.TestCase):
         
         itemsMock = Mock(return_value=items)
         
-        with patch('devlog.dates.log_year.FileStructure') as FileStructureMock:
-            FileStructureMock.years = itemsMock
+        with patch('devlog.dates.log_year.DateFiles') as DateFilesMock:
+            DateFilesMock.Years = itemsMock
             actual = year.next
             self.assertEqual(actual, expected)
 
@@ -81,10 +81,10 @@ class all(unittest.TestCase):
         
         itemsMock = Mock(return_value=dates)
         
-        with patch('devlog.dates.log_year.FileStructure') as FileStructureMock:
-            FileStructureMock.years = itemsMock
+        with patch('devlog.dates.log_year.DateFiles') as DateFilesMock:
+            DateFilesMock.Years = itemsMock
             actual = year.all
-            FileStructureMock.years.assert_called_once_with()
+            DateFilesMock.Years.assert_called_once_with()
             self.assertEqual(actual, expected)
 
 class months(unittest.TestCase):
@@ -98,8 +98,8 @@ class months(unittest.TestCase):
         
         itemsMock = Mock(return_value=dates)
         
-        with patch('devlog.dates.log_year.FileStructure') as FileStructureMock:
-            FileStructureMock.months = itemsMock
+        with patch('devlog.dates.log_year.DateFiles') as DateFilesMock:
+            DateFilesMock.Months = itemsMock
             actual = year.months
-            FileStructureMock.months.assert_called_once_with(year.date)
+            DateFilesMock.Months.assert_called_once_with(year.date)
             self.assertEqual(actual, expected)

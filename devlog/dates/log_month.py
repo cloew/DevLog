@@ -1,5 +1,5 @@
 from .log_day import LogDay
-from ..files import FileStructure
+from ..files import DateFiles
 
 from kao_list import KaoList
 from kao_try import Try
@@ -31,7 +31,7 @@ class LogMonth:
     @property
     def days(self):
         """ Return all the days within this month """
-        return KaoList([LogDay(date, self) for date in FileStructure.days(self.date)])
+        return KaoList([LogDay(date, self) for date in DateFiles.Days(self.date)])
         
     def __eq__(self, other):
         """ Return if this Month is the same as another """

@@ -1,6 +1,3 @@
-from ..files import FileStructure
-
-from kao_list import KaoList
 from kao_try import Try
 
 class LogDay:

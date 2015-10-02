@@ -20,9 +20,8 @@ create_file = create_path(TouchFile)
 class PathBuilder:
     """ Helper class to manage the build paths for the dev log """
     
-    def __init__(self, rootDir):
+    def __init__(self):
         """ Initialize with the root directory """
-        self.rootDir = rootDir
         self.builders = {DateFields.year: self.getYearDirname,
                          DateFields.month: self.getMonthDirname,
                          DateFields.day: self.getDayFilename}
@@ -34,7 +33,7 @@ class PathBuilder:
     @create_dir
     def getRootDir(self, create=False):
         """ Return the path to the root directory """
-        return return Config.logDir
+        return Config.logDir
 
     @create_dir
     def getYearDirname(self, date, create=False):

@@ -1,5 +1,5 @@
 from .log_month import LogMonth
-from ..files import FileStructure
+from ..files import DateFiles
 
 from kao_list import KaoList
 
@@ -23,12 +23,12 @@ class LogYear:
     @property
     def all(self):
         """ Return all the years """
-        return KaoList([LogYear(date) for date in FileStructure.years()])
+        return KaoList([LogYear(date) for date in DateFiles.Years()])
         
     @property
     def months(self):
         """ Return all the months within this year """
-        return KaoList([LogMonth(date, self) for date in FileStructure.months(self.date)])
+        return KaoList([LogMonth(date, self) for date in DateFiles.Months(self.date)])
         
     def __eq__(self, other):
         """ Return if this Year is the same as another """

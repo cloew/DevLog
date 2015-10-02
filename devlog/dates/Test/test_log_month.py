@@ -91,8 +91,8 @@ class days(unittest.TestCase):
         
         itemsMock = Mock(return_value=dates)
         
-        with patch('devlog.dates.log_month.FileStructure') as FileStructureMock:
-            FileStructureMock.days = itemsMock
+        with patch('devlog.dates.log_month.DateFiles') as DateFilesMock:
+            DateFilesMock.Days = itemsMock
             actual = month.days
-            FileStructureMock.days.assert_called_once_with(month.date)
+            DateFilesMock.Days.assert_called_once_with(month.date)
             self.assertEqual(actual, expected)
