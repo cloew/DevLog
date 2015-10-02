@@ -1,3 +1,4 @@
+from .date_builder import DateBuilder
 from .date_fields import DateFields
 from .path_builder import PathBuilder
 from ..config import Config
@@ -23,7 +24,7 @@ class DateFiles(Enum):
         return PathBuilder().getPath(date, self.field, create=False)
         
     def build(self, date, value):
-        return DateBuilder(self.date).build({self.field, value})
+        return DateBuilder(date).build(**{self.field: value})
 
     def getDirContents(self, directory):
         """ Return the contents of the given directory """
