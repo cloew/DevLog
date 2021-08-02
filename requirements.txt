@@ -1,0 +1,7 @@
+git+git://github.com/cloew/KaoConfig.git
+git+git://github.com/cloew/KaoPath.git
+git+git://github.com/cloew/KaoTry.git
+git+git://github.com/cloew/KaoList.git
+git+git://github.com/cloew/KaoFn.git
+git+git://github.com/cloew/SmartDefaults.git
+toml
